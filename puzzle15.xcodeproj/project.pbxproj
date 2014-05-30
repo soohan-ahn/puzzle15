@@ -201,7 +201,9 @@
 		D63AA7CD1938725400326EDF /* CCTableViewCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D63AA7CC1938725400326EDF /* CCTableViewCell.cpp */; };
 		D63AA7D11938725400326EDF /* HttpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D63AA7D01938725400326EDF /* HttpClient.cpp */; };
 		D63AA7DA1938725400326EDF /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D63AA7D91938725400326EDF /* AppDelegate.cpp */; };
-		D63AA7DD1938725400326EDF /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D63AA7DC1938725400326EDF /* HelloWorldScene.cpp */; };
+		D63AA7DD1938725400326EDF /* Puzzle15Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D63AA7DC1938725400326EDF /* Puzzle15Scene.cpp */; };
+		D63AA7E5193875AA00326EDF /* GameSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D63AA7E3193875AA00326EDF /* GameSprite.cpp */; };
+		D63AA7E81938773400326EDF /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D63AA7E61938773400326EDF /* GameLayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -632,8 +634,12 @@
 		D63AA7D61938725400326EDF /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		D63AA7D81938725400326EDF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		D63AA7D91938725400326EDF /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
-		D63AA7DB1938725400326EDF /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		D63AA7DC1938725400326EDF /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		D63AA7DB1938725400326EDF /* Puzzle15Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Puzzle15Scene.h; path = Classes/Puzzle15Scene.h; sourceTree = "<group>"; };
+		D63AA7DC1938725400326EDF /* Puzzle15Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Puzzle15Scene.cpp; path = Classes/Puzzle15Scene.cpp; sourceTree = "<group>"; };
+		D63AA7E3193875AA00326EDF /* GameSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSprite.cpp; sourceTree = "<group>"; };
+		D63AA7E4193875AA00326EDF /* GameSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSprite.h; sourceTree = "<group>"; };
+		D63AA7E61938773400326EDF /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
+		D63AA7E71938773400326EDF /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1517,8 +1523,12 @@
 			children = (
 				D63AA7D81938725400326EDF /* AppDelegate.h */,
 				D63AA7D91938725400326EDF /* AppDelegate.cpp */,
-				D63AA7DB1938725400326EDF /* HelloWorldScene.h */,
-				D63AA7DC1938725400326EDF /* HelloWorldScene.cpp */,
+				D63AA7DB1938725400326EDF /* Puzzle15Scene.h */,
+				D63AA7DC1938725400326EDF /* Puzzle15Scene.cpp */,
+				D63AA7E3193875AA00326EDF /* GameSprite.cpp */,
+				D63AA7E4193875AA00326EDF /* GameSprite.h */,
+				D63AA7E61938773400326EDF /* GameLayer.cpp */,
+				D63AA7E71938773400326EDF /* GameLayer.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1768,7 +1778,9 @@
 				D63AA7CD1938725400326EDF /* CCTableViewCell.cpp in Sources */,
 				D63AA7D11938725400326EDF /* HttpClient.cpp in Sources */,
 				D63AA7DA1938725400326EDF /* AppDelegate.cpp in Sources */,
-				D63AA7DD1938725400326EDF /* HelloWorldScene.cpp in Sources */,
+				D63AA7DD1938725400326EDF /* Puzzle15Scene.cpp in Sources */,
+				D63AA7E5193875AA00326EDF /* GameSprite.cpp in Sources */,
+				D63AA7E81938773400326EDF /* GameLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

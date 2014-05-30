@@ -9,7 +9,7 @@
 #include "AppDelegate.h"
 
 #include "cocos2d.h"
-#include "HelloWorldScene.h"
+#include "Puzzle15Scene.h"
 
 USING_NS_CC;
 
@@ -27,6 +27,9 @@ bool AppDelegate::applicationDidFinishLaunching()
     // initialize director
     CCDirector *pDirector = CCDirector::sharedDirector();
     pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
+    
+    CCFileUtils::sharedFileUtils()->setResourceDirectory("puzzlehd");
+    pDirector->setContentScaleFactor(1);
 
     // turn on display FPS
     pDirector->setDisplayStats(true);
@@ -35,7 +38,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     pDirector->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
-    CCScene *pScene = HelloWorld::scene();
+    CCScene *pScene = Puzzle15::scene();
 
     // run
     pDirector->runWithScene(pScene);

@@ -1,9 +1,9 @@
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#ifndef __PUZZLE15_SCENE_H__
+#define __PUZZLE15_SCENE_H__
 
 #include "cocos2d.h"
 
-class HelloWorld : public cocos2d::CCLayer
+class Puzzle15 : public cocos2d::CCLayer
 {
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
@@ -16,7 +16,8 @@ public:
     void menuCloseCallback(CCObject* pSender);
 
     // preprocessor macro for "static create()" constructor ( node() deprecated )
-    CREATE_FUNC(HelloWorld);
+    CREATE_FUNC(Puzzle15
+                );
 };
 
-#endif // __HELLOWORLD_SCENE_H__
+#endif // __Puzzle15_SCENE_H__
