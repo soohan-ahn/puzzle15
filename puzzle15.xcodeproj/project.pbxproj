@@ -204,6 +204,10 @@
 		D63AA7DD1938725400326EDF /* Puzzle15Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D63AA7DC1938725400326EDF /* Puzzle15Scene.cpp */; };
 		D63AA7E5193875AA00326EDF /* GameSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D63AA7E3193875AA00326EDF /* GameSprite.cpp */; };
 		D63AA7E81938773400326EDF /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D63AA7E61938773400326EDF /* GameLayer.cpp */; };
+		D6F5FD1A193DB31E00F54A8A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6F5FD19193DB31E00F54A8A /* Default-568h@2x.png */; };
+		D6F5FD1C193DF62A00F54A8A /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F5FD1B193DF62A00F54A8A /* libcurl.a */; };
+		D6F5FD1E193DFA4000F54A8A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F5FD1D193DFA4000F54A8A /* libz.dylib */; };
+		D6F5FD20194547F300F54A8A /* puzzlehd in Resources */ = {isa = PBXBuildFile; fileRef = D6F5FD1F194547F300F54A8A /* puzzlehd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -640,6 +644,10 @@
 		D63AA7E4193875AA00326EDF /* GameSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSprite.h; sourceTree = "<group>"; };
 		D63AA7E61938773400326EDF /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
 		D63AA7E71938773400326EDF /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		D6F5FD19193DB31E00F54A8A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D6F5FD1B193DF62A00F54A8A /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = "../../cocos2d-2.0-x-2.0.4/cocos2dx/platform/third_party/ios/libraries/libcurl.a"; sourceTree = "<group>"; };
+		D6F5FD1D193DFA4000F54A8A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D6F5FD1F194547F300F54A8A /* puzzlehd */ = {isa = PBXFileReference; lastKnownFileType = folder; name = puzzlehd; path = Resources/puzzlehd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -647,6 +655,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F5FD1E193DFA4000F54A8A /* libz.dylib in Frameworks */,
+				D6F5FD1C193DF62A00F54A8A /* libcurl.a in Frameworks */,
 				D63AA53C1938724C00326EDF /* QuartzCore.framework in Frameworks */,
 				D63AA53E1938724C00326EDF /* OpenGLES.framework in Frameworks */,
 				D63AA5401938724C00326EDF /* OpenAL.framework in Frameworks */,
@@ -665,6 +675,8 @@
 		D63AA52F1938724C00326EDF = {
 			isa = PBXGroup;
 			children = (
+				D6F5FD1D193DFA4000F54A8A /* libz.dylib */,
+				D6F5FD19193DB31E00F54A8A /* Default-568h@2x.png */,
 				D63AA54B1938724C00326EDF /* puzzle15 */,
 				D63AA53A1938724C00326EDF /* Frameworks */,
 				D63AA5391938724C00326EDF /* Products */,
@@ -682,6 +694,7 @@
 		D63AA53A1938724C00326EDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6F5FD1B193DF62A00F54A8A /* libcurl.a */,
 				D63AA53B1938724C00326EDF /* QuartzCore.framework */,
 				D63AA53D1938724C00326EDF /* OpenGLES.framework */,
 				D63AA53F1938724C00326EDF /* OpenAL.framework */,
@@ -709,6 +722,7 @@
 		D63AA54C1938724C00326EDF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D6F5FD1F194547F300F54A8A /* puzzlehd */,
 				D63AA54D1938724C00326EDF /* CloseNormal.png */,
 				D63AA54F1938724C00326EDF /* CloseSelected.png */,
 				D63AA5511938724C00326EDF /* Default.png */,
@@ -1595,6 +1609,8 @@
 				D63AA5601938724C00326EDF /* Icon@2x.png in Resources */,
 				D63AA5621938724C00326EDF /* iTunesArtwork in Resources */,
 				D63AA5F41938724E00326EDF /* ChangeLog in Resources */,
+				D6F5FD1A193DB31E00F54A8A /* Default-568h@2x.png in Resources */,
+				D6F5FD20194547F300F54A8A /* puzzlehd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1790,7 +1806,11 @@
 		D63AA7DE1938725400326EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					i386,
+					armv7,
+					armv7s,
+				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1813,6 +1833,7 @@
 					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/ios\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1821,7 +1842,11 @@
 		D63AA7DF1938725400326EDF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					i386,
+					armv7,
+					armv7s,
+				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1841,6 +1866,7 @@
 					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/ios\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1856,6 +1882,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = puzzle15/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(PROJECT_NAME)/libs/cocos2dx/kazmath/include\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx\"",
+					"\"$(PROJECT_NAME)/libs/CocosDenshion/include\"",
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/include\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/third_party/ios\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/ios\"",
+					"\"/Users/soochulahn/Desktop/cocos2d-2.0-x-2.0.4/cocos2dx/platform/third_party/ios/libraries\"",
+				);
 				INFOPLIST_FILE = puzzle15/Resources/Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1878,6 +1914,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = puzzle15/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(PROJECT_NAME)/libs/cocos2dx/kazmath/include\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx\"",
+					"\"$(PROJECT_NAME)/libs/CocosDenshion/include\"",
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/include\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/third_party/ios\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/ios\"",
+					"\"/Users/soochulahn/Desktop/cocos2d-2.0-x-2.0.4/cocos2dx/platform/third_party/ios/libraries\"",
+				);
 				INFOPLIST_FILE = puzzle15/Resources/Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1912,6 +1958,7 @@
 				D63AA7E21938725400326EDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

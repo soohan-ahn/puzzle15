@@ -7,12 +7,14 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "puzzle15/Classes/Puzzle15Scene.cpp"
-         timestampString = "423130069.608946"
+         filePath = "puzzle15/GameLayer.cpp"
+         timestampString = "423550084.669523"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1"
-         endingLineNumber = "1">
+         startingLineNumber = "61"
+         endingLineNumber = "61"
+         landmarkName = "GameLayer::init()"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

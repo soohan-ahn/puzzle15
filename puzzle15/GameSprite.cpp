@@ -28,3 +28,11 @@ GameSprite* GameSprite::gameSpriteWithFile(const char *pszFileName)
     CC_SAFE_DELETE(sprite);
     return NULL;
 }
+
+void GameSprite::setPosition(const cocos2d::CCPoint &pos)
+{
+    CCSprite::setPosition(pos);
+    if(!_nextPosition.equals(pos)){
+        _nextPosition = pos;
+    }
+}
