@@ -22,11 +22,19 @@ class Puzzle15 : public cocos2d::CCLayer
     CCArray * _puzzleArray;
     
     CCLabelTTF * _timeLabel;
+    CCLabelTTF * _statusLabel;
     
     CCSize _screenSize;
     
+    int _statusArray[5][5];
+    int shuffledPuzzle[20] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,-1,15};
+    int _currentBlank;
+    int _currentTouched;
+    
     int _playerTime;
     void playerTimer();
+    
+    bool _running = true;
     
 public:
     ~Puzzle15();
@@ -39,12 +47,12 @@ public:
     
     void menuCloseCallback(CCObject* pSender);
     
-    virtual void ccTouchesBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
-    virtual void ccTouchesMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
-    virtual void ccTouchesEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
+    virtual void ccTouchesBegan(CCSet* pTouches, cocos2d::CCEvent *pEvent);
+    virtual void ccTouchesMoved(CCSet* pTouches, cocos2d::CCEvent *pEvent);
+    virtual void ccTouchesEnded(CCSet* pTouches, cocos2d::CCEvent *pEvent);
     
     void timeDisplay();
-    
+    bool checkClear();
 };
 
 #endif /* defined(__puzzle15__GameLayer__) */
