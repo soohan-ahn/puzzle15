@@ -13,6 +13,10 @@
 #include "GameSprite.h"
 #include <string.h>
 #include <stdlib.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <netdb.h>
 
 using namespace cocos2d;
 

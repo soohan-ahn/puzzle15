@@ -311,6 +311,65 @@ void Puzzle15::ccTouchesEnded(CCSet* pTouches, cocos2d::CCEvent *pEvent)
     if(checkClear()){
         _statusLabel->setString("Clear!!");
         this->setTouchEnabled(false);
+        
+        int portno = 3000, n;
+        struct sockaddr_in serv_addr;
+        struct hostent *server;
+        
+        char buffer[256];
+        
+        int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+        
+        if(sockfd < 0){
+            perror("ERROR opening socket");
+            exit(1);
+        }
+        else{
+            server = gethostbyname("127.0.0.1");
+            
+            if (server == NULL) {
+                fprintf(stderr,"ERROR, no such host\n");
+                exit(0);
+            }
+            
+            bzero((char *) &serv_addr, sizeof(serv_addr));
+            serv_addr.sin_family = AF_INET;
+            
+            bcopy((char *)server->h_addr,
+                  (char *)&serv_addr.sin_addr.s_addr,
+                  server->h_length);
+            
+            serv_addr.sin_port = htons(portno);
+            if (connect(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0)
+                fprintf(stderr,"ERROR connecting");
+            
+  //          int len = recv(sockfd, buffer, 255, 0);
+//            sprintf(buffer, "Anonymous|%d",_playerTime);
+            char temp_buffer[256];
+            bzero(buffer,256);
+            bzero(temp_buffer,256);
+//          sprintf(temp_buffer,"{\"name\"=>\"Anonymous\", \"time\"=>\"%d\"}",_playerTime);
+            sprintf(temp_buffer,"Anonymous|%d",_playerTime);
+            sprintf(buffer, "POST / HTTP/1.1\r\nConnection: close\r\nContent-Length: %d\r\nContent-type:text\r\n\r\n%s", (int)strlen(temp_buffer), temp_buffer);
+            n = send(sockfd, buffer, strlen(buffer), 0);
+            if (n < 0)
+                fprintf(stderr, "ERROR writing to socket");
+            
+            char recv_buffer[500];
+            
+            while((n = read(sockfd, recv_buffer, 500)) > 0){
+                if (n < 0)
+                    fprintf(stderr, "ERROR reading from socket");
+                
+                printf("%s\n", recv_buffer);
+                printf("One Iteration read end\n");
+
+                bzero(recv_buffer,500);
+            }
+                        
+            close(sockfd);
+        }
+        
         _running = false;
     }
     
