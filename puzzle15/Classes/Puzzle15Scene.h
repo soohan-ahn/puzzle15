@@ -27,6 +27,8 @@ class Puzzle15 : public cocos2d::CCLayer
     
     CCLabelTTF * _timeLabel;
     CCLabelTTF * _statusLabel;
+    CCLabelTTF * _resultLabel;
+    CCLabelTTF * _resultTitleLabel;
     
     CCSize _screenSize;
     

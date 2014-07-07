@@ -73,7 +73,7 @@ bool Puzzle15::init()
      }
     
     _playerTime = 0;
-    _timeLabel = CCLabelTTF::create("initial", "Arial", 60);
+    _timeLabel = CCLabelTTF::create("initial", "Arial", 40);
     _timeLabel->setPosition(ccp(_screenSize.width * 0.9, _screenSize.height * 0.1));
     this->schedule(schedule_selector(Puzzle15::timeDisplay),1.0);
     this->addChild(_timeLabel);
@@ -316,7 +316,7 @@ void Puzzle15::ccTouchesEnded(CCSet* pTouches, cocos2d::CCEvent *pEvent)
         struct sockaddr_in serv_addr;
         struct hostent *server;
         
-        char buffer[256];
+        char buffer[500];
         
         int sockfd = socket(AF_INET, SOCK_STREAM, 0);
         
@@ -346,7 +346,7 @@ void Puzzle15::ccTouchesEnded(CCSet* pTouches, cocos2d::CCEvent *pEvent)
   //          int len = recv(sockfd, buffer, 255, 0);
 //            sprintf(buffer, "Anonymous|%d",_playerTime);
             char temp_buffer[256];
-            bzero(buffer,256);
+            bzero(buffer,500);
             bzero(temp_buffer,256);
 //          sprintf(temp_buffer,"{\"name\"=>\"Anonymous\", \"time\"=>\"%d\"}",_playerTime);
             sprintf(temp_buffer,"Anonymous|%d",_playerTime);
@@ -355,18 +355,68 @@ void Puzzle15::ccTouchesEnded(CCSet* pTouches, cocos2d::CCEvent *pEvent)
             if (n < 0)
                 fprintf(stderr, "ERROR writing to socket");
             
-            char recv_buffer[500];
+            char recv_buffer[1000];
+            char result_buffer[1000];
             
-            while((n = read(sockfd, recv_buffer, 500)) > 0){
-                if (n < 0)
-                    fprintf(stderr, "ERROR reading from socket");
+            bzero(recv_buffer, 1000);
+            n = read(sockfd, recv_buffer, 1000);
+            if (n < 0)
+                fprintf(stderr, "ERROR reading from socket");
                 
-                printf("%s\n", recv_buffer);
-                printf("One Iteration read end\n");
-
-                bzero(recv_buffer,500);
+            printf("%s\nn = %d\n", recv_buffer,n);
+            /*
+            for(int i = 0; i < 30; i++)
+                printf("'%c'\n",recv_buffer[i]);
+            */
+            for(i = 0; i < strlen(recv_buffer); i++)
+            {
+                if(recv_buffer[i] == '\r' && recv_buffer[i + 1] == '\n'){
+                    if(recv_buffer[i + 2] == '\r' && recv_buffer[i + 3] == '\n'){
+                        printf("Here it is! = %d\n",i);
+                        n = i + 4;
+                        break;
+                    }
+                }
             }
-                        
+            
+            for(k = 1, i = n, j = 0; k <= 5; k++)
+            {
+                int count_line = 0;
+                result_buffer[j++] = (k + '0');
+                result_buffer[j++] = '\t';
+                for(; i < strlen(recv_buffer); i++)
+                {
+                    if(recv_buffer[i] == '\n'){
+                        count_line++;
+                        result_buffer[j++] = '\t';
+                        if(count_line == 3) break;
+                    }
+                    else result_buffer[j++] = recv_buffer[i];
+                }
+                result_buffer[j++] = '\n';
+                i++;
+            }
+            
+            printf("%s\n",result_buffer);
+            
+            for(i = 1; i <= 16; i++)
+            {
+                GameSprite* _eachPuzzle = (GameSprite*)_puzzleArray->objectAtIndex(i);
+                this->removeChild(_eachPuzzle, true);
+            }
+//          this->removeChild(_timeLabel, true);
+            
+            _resultTitleLabel = CCLabelTTF::create("Rating!\nRank\tName\tTime\tID", "Arial", 20, CCSizeMake(185, 32), kCCTextAlignmentLeft);
+            _resultTitleLabel->setColor(ccc3(255,255,255));
+            _resultTitleLabel->setPosition(ccp(_screenSize.width * 0.5, _screenSize.height * 0.7));
+            this->addChild(_resultTitleLabel);
+            
+            _resultLabel = CCLabelTTF::create(result_buffer,"Arial", 20, CCSizeMake(185, 50), kCCTextAlignmentLeft );
+            _resultLabel->setColor(ccc3(255,255,255));
+            _resultLabel->setPosition(ccp(_screenSize.width * 0.5, _screenSize.height * 0.5));
+ //         _resultLabel->setString(result_buffer);
+            this->addChild(_resultLabel);
+            
             close(sockfd);
         }
         
